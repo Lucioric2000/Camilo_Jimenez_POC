@@ -22,3 +22,6 @@ password_field.send_keys("wl8m5tNk")
 #Submits the sign-in form
 sign_in_submit_button = driver.find_element_by_id("signInSubmit")
 sign_in_submit_button.submit()
+
+#after login, you should need to submit a confirmation code, then, use your login credentials or a unsecured ones
+#Submits the redeem code
