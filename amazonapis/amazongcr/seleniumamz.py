@@ -49,25 +49,23 @@ class GiftCodeScraper:
         #captcha ID: gc-captcha-code-input
         captchas = driver.find_elements_by_id("gc-captcha-code-input")
         #print("captchas", captchas)
-        if len(captchas) > 0:
-            cpc = input("Enter the captcha response: ")
-            #print("cr", cpc)
-            captchas[0].clear()
-            captchas[0].send_keys(cpc)
+        #if len(captchas) > 0:
+        #    cpc = input("Enter the captcha response: ")
+        #    captchas[0].clear()
+        #    captchas[0].send_keys(cpc)
         #Submits the redeem code
         submit_button.submit()
 
         element = WebDriverWait(driver, 40).until(
                 EC.presence_of_element_located((By.ID, "gc-redemption-info-message")))
-        redinfomsg = driver.find_element_by_id("gc-redemption-info-message")
-        #print("redm", redinfomsg.text)
-        #print("redmh", str(redinfomsg))
+        return self.discriminate_response()
+    def discriminate_response(self):
+        alertsucess = driver.find_elements_by_id("alertRedemptionSuccess")
         errmessages = driver.find_elements_by_id("gc-redemption-error")
         if len(errmessages):
             return {"success": False, "message": errmessages[0].text}
         else:
-            return {"success": True, "message": redinfomsg.text}
-
+            return {"success": True, "message": alertsucess[0].text}
 #exp = EC.presence_of_element_located((By.NAME, "email"))
 #mex: L6NHW-AFMUSB-VXYGU: L6NHWAFMUSBVXYGU
 #US: Y475L-TDLHQZ-TSMX3
@@ -75,8 +73,9 @@ gcs = GiftCodeScraper()
 
 try:
     gcs.login()
-    tc = gcs.test_code("L6NHWAFMUSBVXYGU")
-    print("tc", tc)
+    #falsetc = gcs.test_code("L6NHWAFMUSBVXYGU")
+    truetc = gcs.test_code("JR6JQD38VW4KAZ")
+    print("tc", truetc)
 finally:
     pass
     #driver.quit()
