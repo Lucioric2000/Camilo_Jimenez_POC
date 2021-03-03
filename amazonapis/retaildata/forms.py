@@ -3,6 +3,7 @@ from django import forms# import ModelForm
 from .models import RetailerAccount
 
 		#assert 0,dir()
-class SettingsForm(forms.ModelForm):
+class RetailerForm(forms.ModelForm):
     class Meta:
         model = RetailerAccount
+        exclude = ()
