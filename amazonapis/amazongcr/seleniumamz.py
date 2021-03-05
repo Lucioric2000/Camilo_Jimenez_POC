@@ -6,8 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time, logging
 logger = logging.getLogger(__name__)
 print("stdout")
-#assert 0, dir(By)
-#assert 0
 # Crear una sesión de Chrome
 driver = webdriver.Chrome()
 driver.implicitly_wait(30)
@@ -22,12 +20,12 @@ class GiftCodeScraper:
         #Fill in e-mail
         email_field = driver.find_element_by_name("email")
         email_field.clear()
-        email_field.send_keys("lucioric2000@gmail.com")
+        email_field.send_keys("username")
 
         #Fill in pasword
         password_field = driver.find_element_by_name("password")
         password_field.clear()
-        password_field.send_keys("wl8m5tNk")
+        password_field.send_keys("password")
 
         #Submits the sign-in form
         sign_in_submit_button = driver.find_element_by_id("signInSubmit")

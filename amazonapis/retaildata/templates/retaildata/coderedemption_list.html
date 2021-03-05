@@ -1,0 +1,35 @@
+{% extends "retaildata/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Gift codes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Retailer</th>
+                <th>Email</th>
+                <th>Code</th>
+                <th>Redemption date</th>
+                <th>Redemption status</th>
+                <th>Redemption message</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gift_code in object_list %}
+            <tr>
+                <td>{{gift_code.account_where_to_redeem.retailer}}</td>
+                <td>{{gift_code.account_where_to_redeem.amazon_email}}</td>
+                <td>{{gift_code.code}}</td>
+                <td>{{gift_code.redemption_date|time}}</td>
+                <td>{{gift_code.redemption_status|yesno:"Yes,No,"}}</td>
+                <td>{{gift_code.status_message|striptags}}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>No gift codes yet.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

@@ -19,5 +19,10 @@ from . import views
 
 urlpatterns = [
     path('', views.RetailerAddView.as_view()),
+    #path('codes', views.RedeemView.as_view()),
+    path('redeem', views.QuickRedeemView.as_view()),
+    path('status', views.StatusesView.as_view()),
+    path('amzaccounts', views.AmazonAccountsView.as_view()),
+    path('clear', views.ClearView.as_view())
     #path('admin/', admin.site.urls),
 ]

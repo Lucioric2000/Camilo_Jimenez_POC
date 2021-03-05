@@ -1,0 +1,49 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style=" padding: 0px;">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="{% static 'cryptoorchid/img/orchidlogo.png' %}"> Gift code redeemer</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <!-- PLANS has &nbsp;&nbsp; after in index.html but not in plans.html -->
+                        <!--a class="nav-link js-scroll-trigger" href="/login/settings.html" style="color: red;"><strong>&nbsp;&nbsp;CONFIGURATOR</strong></a-->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{user.username}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/admin">Configure</a>
+                          <a class="dropdown-item" href="/accounts/logout">Log out</a>
+                        </div>
+                        <!--a class="nav-link js-scroll-trigger" href="/accounts/logout" style="color: red;"><strong>&nbsp;&nbsp;LOG OUT {{user.username}}</strong></a-->
+                    </li>
+                {% else %}
+                    <li class="nav-fill nav-item">
+                        <!-- PLANS has &nbsp;&nbsp; after in index.html but not in plans.html -->
+                        <!--a class="nav-link js-scroll-trigger" href="/login/settings.html" style="color: red;"><strong>&nbsp;&nbsp;CONFIGURATOR</strong></a-->
+                        <a class="nav-link js-scroll-trigger" href="/admin"><strong>Settings</strong></a>
+                    </li>
+                {% endif %}
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/"><strong>Retailer accounts</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/redeem"><strong>Redeem&nbsp;&nbsp; </strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/status"><strong>Status</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/amzaccounts"><strong>Accounts</strong></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+</nav>

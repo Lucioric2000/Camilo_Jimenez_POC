@@ -1,0 +1,15 @@
+{% extends "retaildata/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Redeem</h1>
+    <form method='POST' action='redeem'>
+        {% csrf_token %}
+        <table>
+            <tbody>
+                {{form.as_table}}
+            </tbody>
+        </table>
+        <input type='submit' />
+    </form>
+{% endblock %}
+
