@@ -1,5 +1,16 @@
-<form method='POST' action='.'>
-	{% csrf_token %}
-    {{form.as_p}}
-	<input type='submit' />
-</form>
+{% extends "retaildata/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Add Amazon aacount</h1>
+    <form method='POST' action='.'>
+        {% csrf_token %}
+        <table>
+            <tbody>
+                {{form.as_table}}
+            </tbody>
+        </table>
+        <input type='submit' />
+    </form>
+{% endblock %}
+
+

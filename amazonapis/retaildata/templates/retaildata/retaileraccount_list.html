@@ -1,0 +1,29 @@
+{% extends "retaildata/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Amazon accounts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Retailer</th>
+                <th>Email</th>
+                <th>Zip code</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for amazon_account in object_list %}
+            <tr>
+                <td>{{amazon_account.retailer}}</td>
+                <td>{{amazon_account.amazon_email}}</td>
+                <td>{{amazon_account.zip_code}}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>No gift codes yet.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
